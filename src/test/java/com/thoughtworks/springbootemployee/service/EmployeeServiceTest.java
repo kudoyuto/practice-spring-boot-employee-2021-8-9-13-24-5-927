@@ -45,6 +45,13 @@ public class EmployeeServiceTest {
             // Then
             assertEquals(employees.size(),actualEmployees.size());
             assertIterableEquals(employees,actualEmployees);
-
+    }
+    @Test
+    void should_return_an_employee_by_id_when_get_employee_by_id_given_id_of_an_employee(){
+        //Given
+        List <Employee> employees = new ArrayList<>();
+        employees.add(new Employee(1, "Yuto", 23, "Male", 15000));
+        employees.add(new Employee(2, "JC", 22, "Male", 10000));
+        given(employeeRepository.getEmployeeById(1).willReturn(employees.get(0)));
     }
 }
