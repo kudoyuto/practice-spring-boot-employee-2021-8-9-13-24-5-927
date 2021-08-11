@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
@@ -115,5 +115,16 @@ public class EmployeeServiceTest {
         Employee actualEmployee = employeeService.updateEmployeeInformation(2,employees.get(1));
         //Then
         assertEquals(actualEmployee,employees.get(1));
+    }
+    @Test
+    void should_return_no_record_of_employee_when_delete_employee_by_id_given_employee_id(){
+        //Given
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(1, "Yuto", 23, "Male", 15000));
+        employees.add(new Employee(2, "YUTA", 23, "Male", 10000));
+        employees.add(new Employee(3, "YUTI", 25, "Male", 10000));
+        //When&Then
+        employeeService.deleteEmployeeID(3);
+        verify(employeeRepository,times(1)).deleteEmployeeID(3);
     }
 }
