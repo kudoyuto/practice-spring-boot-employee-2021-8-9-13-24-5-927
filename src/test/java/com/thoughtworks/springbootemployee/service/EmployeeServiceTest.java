@@ -103,4 +103,17 @@ public class EmployeeServiceTest {
         //Then
         assertEquals(actualEmployee,employee);
     }
+    @Test
+    void should_return_updated_record_of_employees_when_update_employee_information_given_employee_id(){
+        //Given
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(1, "Yuto", 23, "Male", 15000));
+        employees.add(new Employee(2, "YUTA", 23, "Male", 10000));
+        employees.add(new Employee(3, "YUTI", 25, "Male", 10000));
+        when(employeeRepository.updateEmployeeInformation(2,employees.get(1))).thenReturn(employees.get(1));
+        //When
+        Employee actualEmployee = employeeService.updateEmployeeInformation(2,employees.get(1));
+        //Then
+        assertEquals(actualEmployee,employees.get(1));
+    }
 }
