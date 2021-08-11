@@ -65,7 +65,7 @@ public class EmployeesController {
         return employeeService.updateEmployeeInformation(employeeId,employeeToBeUpdated);
     }
 
-   
+
 
     @DeleteMapping(path="{employeeID}")
     public void deleteEmployeeID(@PathVariable Integer employeeID) {
