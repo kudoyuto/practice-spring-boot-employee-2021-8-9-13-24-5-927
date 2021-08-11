@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
@@ -52,6 +53,14 @@ public class EmployeeServiceTest {
         List <Employee> employees = new ArrayList<>();
         employees.add(new Employee(1, "Yuto", 23, "Male", 15000));
         employees.add(new Employee(2, "JC", 22, "Male", 10000));
-        given(employeeRepository.getEmployeeById(1).willReturn(employees.get(0)));
+        given(employeeRepository.getEmployeeById(2)).willReturn(employees.get(1));
+        //When
+       ;
+        Employee actualEmployee = employeeService.getEmployeeById(2);
+        //Then
+        assertEquals(actualEmployee,employees.get(1));
+
+
+
     }
 }
