@@ -48,8 +48,9 @@ public class EmployeeRepository {
                 .limit(pageSize)
                 .collect(Collectors.toList());
     }
-    public void addEmployee(Employee employee) {
-        employees.add(new Employee(employee.getId(), employee.getName(), employee.getAge(), employee.getGender(), employee.getSalary()));
+    public Employee addEmployee(Employee employee) {
+        employees.add(employee);
+        return employee;
     }
     public Employee updateEmployeeInformation(Integer employeeId,Employee employeeToBeUpdated) {
         return employees.stream()

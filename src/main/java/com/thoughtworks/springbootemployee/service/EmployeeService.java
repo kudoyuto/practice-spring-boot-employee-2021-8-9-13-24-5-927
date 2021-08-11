@@ -33,8 +33,9 @@ public class EmployeeService {
     public List<Employee> getEmployeesByPagination( Long pageIndex, Long pageSize) {
         return employeeRepository.getEmployeesByPagination(pageIndex,pageSize);
     }
-    public void addEmployee(Employee employee) {
-         employeeRepository.addEmployee(employee);
+    public Employee addEmployee(Employee employee) {
+         return employeeRepository.addEmployee(employee);
+
     }
 
     public Employee updateEmployeeInformation(Integer employeeId,Employee employeeToBeUpdated) {
