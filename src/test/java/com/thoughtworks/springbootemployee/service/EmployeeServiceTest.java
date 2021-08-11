@@ -93,4 +93,14 @@ public class EmployeeServiceTest {
         //Then
         assertIterableEquals(actualEmployee,employees);
     }
+    @Test
+    void should_return_nothing_specific_gender_employees_when_add_an_employee_given_id_name_age_gender_salary(){
+        //Given
+        Employee employee = new Employee(7,"Kayle",24,"Male",25000);
+        when(employeeRepository.addEmployee(employee)).thenReturn(employee);
+        //When
+        Employee actualEmployee = employeeService.addEmployee(employee);
+        //Then
+        assertEquals(actualEmployee,employee);
+    }
 }
