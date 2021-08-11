@@ -2,6 +2,7 @@ package com.thoughtworks.springbootemployee.controller;
 
 import com.thoughtworks.springbootemployee.model.Employee;
 import com.thoughtworks.springbootemployee.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,11 +12,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/employees")
 public class EmployeesController {
+    @Autowired
    private EmployeeService employeeService;
 
-    public EmployeesController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+
 
     private final List<Employee> employees = new ArrayList<>();
 
@@ -88,6 +88,12 @@ public class EmployeesController {
             employee.setSalary(employeeToBeUpdated.getSalary());
         }
         return employee;
+    }
+
+    @DeleteMapping(path="{employeeID}")
+    public void deleteEmployeeID(@PathVariable Integer employeeID) {
+        employees.removeIf(employee -> employee.getId().equals(employeeID));
+
     }
 
 }

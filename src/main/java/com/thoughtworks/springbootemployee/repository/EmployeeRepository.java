@@ -1,6 +1,8 @@
 package com.thoughtworks.springbootemployee.repository;
 
 import com.thoughtworks.springbootemployee.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class EmployeeRepository {
 
-    private final List<Employee> employees = new ArrayList<>();
+    private List<Employee> employees = new ArrayList<>();
 
     public EmployeeRepository() {
         employees.add(new Employee(1, "Yuto", 23, "Male", 15000));
