@@ -40,25 +40,7 @@ public class EmployeeService {
     public Employee updateEmployeeInformation(Integer employeeId,Employee employeeToBeUpdated) {
         return employeeRepository.updateEmployeeInformation(employeeId,employeeToBeUpdated);
     }
-    private Employee updateEmployeeInfo(Employee employee, Employee employeeToBeUpdated) {
 
-        if (employeeToBeUpdated.getName() != null) {
-            employee.setName(employeeToBeUpdated.getName());
-        }
-
-        if (employeeToBeUpdated.getAge() != null) {
-            employee.setAge(employeeToBeUpdated.getAge());
-        }
-
-        if (employeeToBeUpdated.getGender() != null) {
-            employee.setGender(employeeToBeUpdated.getGender());
-        }
-
-        if (employeeToBeUpdated.getSalary() != null) {
-            employee.setSalary(employeeToBeUpdated.getSalary());
-        }
-        return employee;
-    }
     public void deleteEmployeeID(Integer employeeID) {
         employeeRepository.deleteEmployeeID(employeeID);
 
