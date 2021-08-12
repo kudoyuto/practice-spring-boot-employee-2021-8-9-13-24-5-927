@@ -69,7 +69,7 @@ public class EmployeeServiceTest {
         employees.add(new Employee(3, "YUTI", 25, "Male", 10000));
         employees.add(new Employee(4, "YUTHREE", 27, "Female", 10000));
         employees.add(new Employee(5, "YUFOUR", 22, "Male", 10000));
-        employees.add(new Employee(6, "YU5", 22, "Male", 10000));
+
         given(employeeRepository.getEmployeesByPagination(1L,5L)).willReturn(employees);
         //When
 
@@ -83,10 +83,9 @@ public class EmployeeServiceTest {
         List <Employee> employees = new ArrayList<>();
         employees.add(new Employee(1, "Yuto", 23, "Male", 15000));
         employees.add(new Employee(2, "YUTA", 23, "Male", 10000));
-        employees.add(new Employee(3, "YUTI", 25, "Male", 10000));
-        employees.add(new Employee(4, "YUTHREE", 27, "Female", 10000));
-        employees.add(new Employee(5, "YUFOUR", 22, "Male", 10000));
-        employees.add(new Employee(6, "YU5", 22, "Male", 10000));
+        employees.add(new Employee(3, "YUTI", 25, "Male", 10000))
+        employees.add(new Employee(4, "YUFOUR", 22, "Male", 10000));
+        employees.add(new Employee(5, "YU5", 22, "Male", 10000));
         given(employeeRepository.getAllEmployeesByGender("Male")).willReturn(employees);
         //When
         List <Employee> actualEmployee = employeeService.getAllEmployeesByGender("Male");
